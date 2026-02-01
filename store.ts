@@ -1,5 +1,5 @@
 
-import { Appointment, User, UserRole, MutationState } from './types';
+import { Appointment, User, UserRole, MutationState, TriageLevel } from './types';
 
 class Store {
   private users: User[] = [];
@@ -46,12 +46,40 @@ class Store {
     return newApp;
   }
 
+  removeAppointment(id: string) {
+    this.appointments = this.appointments.filter(app => app.id !== id);
+    this.save();
+  }
+
   getAppointments() {
     return this.appointments;
   }
 
   getSortedAppointments() {
-    return [...this.appointments].sort((a, b) => b.triageScore - a.triageScore);
+    const weights = {
+      [TriageLevel.EMERGENCY]: 4,
+      [TriageLevel.CRITICAL]: 3,
+      [TriageLevel.INTERMEDIATE]: 2,
+      [TriageLevel.NORMAL]: 1,
+    };
+
+    return [...this.appointments].sort((a, b) => {
+      // Primary sort: Triage Level weight
+      const weightA = weights[a.triageLevel] || 0;
+      const weightB = weights[b.triageLevel] || 0;
+      
+      if (weightB !== weightA) {
+        return weightB - weightA;
+      }
+      
+      // Secondary sort: Triage Score (granular AI score)
+      if (b.triageScore !== a.triageScore) {
+        return b.triageScore - a.triageScore;
+      }
+
+      // Tertiary sort: Arrival Time
+      return new Date(a.registeredAt).getTime() - new Date(b.registeredAt).getTime();
+    });
   }
 
   getCurrentUser() { return this.currentUser; }

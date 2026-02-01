@@ -1,44 +1,53 @@
 
-import { Doctor, UserRole } from './types';
+import { Doctor } from './types';
 
 export const MOCK_DOCTORS: Doctor[] = [
   {
     id: 'doc1',
-    name: 'Dr. Sarah Wilson',
-    specialty: 'General Physician',
-    rating: 4.8,
-    education: 'MD - Harvard Medical School',
-    experience: 12,
+    name: 'Dr. Sarah Johnson',
+    specialty: 'Cardiology',
+    rating: 4.9,
+    education: 'MD, Harvard Medical School',
+    experience: 15,
     availability: {
-      '2024-05-20': ['09:00', '10:00', '14:00'],
-      '2024-05-21': ['11:00', '13:00', '15:00'],
-      '2024-05-22': ['09:00', '16:00'],
+      '2025-01-24': ['09:00', '10:00', '14:00'],
+      '2025-01-25': ['11:00', '13:00', '15:00'],
     }
   },
   {
     id: 'doc2',
-    name: 'Dr. James Chen',
-    specialty: 'Emergency Specialist',
-    rating: 4.9,
-    education: 'MD - Johns Hopkins',
-    experience: 15,
+    name: 'Dr. Michael Chen',
+    specialty: 'General Medicine',
+    rating: 4.8,
+    education: 'MD, Johns Hopkins',
+    experience: 12,
     availability: {
-      '2024-05-20': ['08:00', '12:00'],
-      '2024-05-21': ['09:00', '14:00', '17:00'],
-      '2024-05-22': ['10:00', '11:00'],
+      '2025-01-24': ['08:00', '12:00'],
+      '2025-01-25': ['09:00', '14:00', '17:00'],
     }
   },
   {
     id: 'doc3',
-    name: 'Dr. Emily Blunt',
-    specialty: 'Cardiologist',
-    rating: 4.7,
-    education: 'MD - Stanford University',
+    name: 'Dr. Emily Roberts',
+    specialty: 'Pediatrics',
+    rating: 4.9,
+    education: 'MD, Stanford University',
     experience: 10,
     availability: {
-      '2024-05-20': ['10:30', '13:30'],
-      '2024-05-21': ['08:30', '16:30'],
-      '2024-05-22': ['12:30', '14:30'],
+      '2025-01-25': ['10:30', '13:30'],
+      '2025-01-26': ['08:30', '16:30'],
+    }
+  },
+  {
+    id: 'doc4',
+    name: 'Dr. David Kumar',
+    specialty: 'Orthopedics',
+    rating: 4.7,
+    education: 'MD, Yale School of Medicine',
+    experience: 18,
+    availability: {
+      '2025-01-24': ['10:00', '11:00'],
+      '2025-01-25': ['12:30', '14:30'],
     }
   }
 ];

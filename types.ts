@@ -8,7 +8,8 @@ export enum UserRole {
 export enum TriageLevel {
   NORMAL = 'NORMAL',
   INTERMEDIATE = 'INTERMEDIATE',
-  CRITICAL = 'CRITICAL'
+  CRITICAL = 'CRITICAL',
+  EMERGENCY = 'EMERGENCY'
 }
 
 export interface User {
